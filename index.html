@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кулинарная книга - Рецепты блюд</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Кулинарная книга</span>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Поиск рецептов...">
+                    <button class="search-btn">Найти</button>
+                </div>
+                <div class="search-filters" id="searchFilters">
+                    <button class="filter-btn active">Все</button>
+                </div>
+            </div>
+            
+            <div class="user-profile">
+                <div class="user-icon" id="userIcon">
+                </div>
+                <div class="user-menu" id="userMenu">
+                    <div class="user-info">
+                        <div class="user-avatar" id="userAvatar">
+                            
+                        </div>
+                        <div class="user-details" id="userDetails">
+                            
+                        </div>
+                    </div>
+                    <div class="menu-items" id="userMenu">
+                        <div id="userMenuOptions">
+                            <a href="http://localhost:4000/profile/profile.html" class="menu-item">
+                                <i class="fas fa-user"></i>
+                                <span>Мой профиль</span>
+                            </a>
+                            <a href="http://localhost:4000/favourite/favourite.html" class="menu-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Избранное</span>
+                            </a>
+                            <div class="divider"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Коллекция рецептов</h1>
+                <div class="command-panel">
+                    <button class="add-recipe-btn" id="addRecipeBtn">
+                        <i class="fas fa-plus"></i> Добавить рецепт
+                    </button>
+                    <button class="cuisine-recipe-btn" id="cuisineBtn">
+                        <i class="fas fa-globe"></i> Кухни
+                    </button>
+                </div>
+            </div>
+            
+            <div class="recipes-grid" id="recipesGrid">
+                
+            </div>
+        </main>
+        
+        <div class="modal-overlay" id="recipeModal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h2 id="modalRecipeTitle">Название рецепта</h2>
+                    <button class="close-modal" id="closeModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-image">
+                        <img id="modalRecipeImage" src="" alt="Рецепт">
+                    </div>
+                    <div class="modal-info">
+                        <div class="recipe-stats">
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span id="modalRecipeTime"></span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-fire"></i>
+                                <span id="modalRecipeCalories"></span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span id="modalRecipeRating"></span>
+                            </div>
+                        </div>
+                        <div class="recipe-description">
+                            <h3>Описание</h3>
+                            <p id="modalRecipeDescription"></p>
+                        </div>
+                        <div class="recipe-actions">
+                            <button class="action-btn favorite">
+                                <i class="far fa-heart"></i> В избранное
+                            </button>
+                            <button class="action-btn feedback">
+                                <i class="fas fa-comment"></i> Оставить отзыв
+                            </button>
+                            <button class="action-btn recipe-steps">
+                                <i class="fas fa-cutlery"></i> Рецепт
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="reviewModal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h2>Оставить отзыв</h2>
+                    <button class="close-modal" id="closeReviewModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <div class="review-form">
+                        <div class="review-recipe-info">
+                            <h3 id="reviewRecipeTitle">Название рецепта</h3>
+                            <div class="recipe-stats">
+                                <div class="stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>Ваша оценка: <span id="selectedRating">0</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="rating-stars">
+                            <div class="stars-container">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
+                            <div class="rating-hint">Нажмите на звезду для оценки</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reviewComment">
+                                <i class="fas fa-comment"></i> Ваш комментарий
+                            </label>
+                            <textarea id="reviewComment" placeholder="Поделитесь вашим мнением о рецепте... Что понравилось, что можно улучшить?" rows="6"></textarea>
+                            <div class="error-message" id="reviewComment-error"></div>
+                        </div>
+                        
+                        <div class="review-actions">
+                            <button class="action-btn cancel" id="cancelReview">
+                                <i class="fas fa-times"></i> Отмена
+                            </button>
+                            <button class="action-btn submit" id="submitReview">
+                                <i class="fas fa-paper-plane"></i> Отправить отзыв
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

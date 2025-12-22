@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя - Кулинарная книга</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Кулинарная книга</span>
+            </div>
+            
+            <div class="header-actions">
+                <button class="back-btn" onclick="window.location.href='http:/\/localhost:4000/index.html'">
+                    <i class="fas fa-arrow-left"></i> Назад
+                </button>
+                <!-- <button class="edit-profile-btn" id="editProfileBtn">
+                    <i class="fas fa-edit"></i> Редактировать
+                </button> -->
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="profile-container">
+                <div class="profile-left">
+                    <div class="profile-avatar-section">
+                        <div class="avatar-container">
+                            <div class="avatar" id="userAvatar">
+                                
+                            </div>
+                        </div>
+                        <h1 class="profile-name" id="profileName">Иван Петров</h1>
+                        <p class="profile-role" id="profileRole">Гурман</p>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <div class="stat-number" id="recipesCount">24</div>
+                                <div class="stat-label">Рецептов</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number" id="favoritesCount">18</div>
+                                <div class="stat-label">Избранных</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number" id="reviewsCount">42</div>
+                                <div class="stat-label">Отзывов</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="profile-quick-actions">
+                        <h3><i class="fas fa-bolt"></i> Быстрые действия</h3>
+                        <div class="actions-grid">
+                            <button class="quick-action" onclick="window.location.href='add-recipe.html'">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Добавить рецепт</span>
+                            </button>
+                            <button class="quick-action" onclick="window.location.href='favorites.html'">
+                                <i class="fas fa-heart"></i>
+                                <span>Избранное</span>
+                            </button>
+                            <button class="quick-action" onclick="window.location.href='#reviews'">
+                                <i class="fas fa-comment"></i>
+                                <span>Мои отзывы</span>
+                            </button>
+                            <button class="quick-action" onclick="window.location.href='#settings'">
+                                <i class="fas fa-cog"></i>
+                                <span>Настройки</span>
+                            </button>
+                        </div>
+                    </div> -->
+                </div>
+                
+                <div class="profile-right">
+                    <div class="profile-info-section">
+                        <h2><i class="fas fa-user-circle"></i> Личная информация</h2>
+                        
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <i class="fas fa-user"></i>
+                                    <span>Имя</span>
+                                </div>
+                                <div class="info-value" id="userFirstName">Иван</div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <i class="fas fa-user"></i>
+                                    <span>Фамилия</span>
+                                </div>
+                                <div class="info-value" id="userLastName">Петров</div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <i class="fas fa-birthday-cake"></i>
+                                    <span>День рождения</span>
+                                </div>
+                                <div class="info-value" id="userBirthday">15 мая 1990</div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Email</span>
+                                </div>
+                                <div class="info-value" id="userEmail">ivan.petrov@example.com</div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-label">
+                                    <i class="fas fa-user-tag"></i>
+                                    <span>Роль</span>
+                                </div>
+                                <div class="info-value" id="userRole">Гурман</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Модальное окно редактирования профиля -->
+        <div class="modal-overlay" id="editProfileModal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h2><i class="fas fa-edit"></i> Редактирование профиля</h2>
+                    <button class="close-modal" id="closeEditModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <form id="editProfileForm" class="edit-profile-form">
+                        <div class="form-section">
+                            <h3>Основная информация</h3>
+                            
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <label for="editFirstName">
+                                        <i class="fas fa-user"></i> Имя
+                                    </label>
+                                    <input type="text" id="editFirstName" name="firstName" required>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="editLastName">
+                                        <i class="fas fa-user"></i> Фамилия
+                                    </label>
+                                    <input type="text" id="editLastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <label for="editBirthday">
+                                        <i class="fas fa-birthday-cake"></i> День рождения
+                                    </label>
+                                    <input type="date" id="editBirthday" name="birthday" required>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="editEmail">
+                                        <i class="fas fa-envelope"></i> Email
+                                    </label>
+                                    <input type="email" id="editEmail" name="email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="editBio">
+                                    <i class="fas fa-align-left"></i> О себе
+                                </label>
+                                <textarea id="editBio" name="bio" rows="4" placeholder="Расскажите о себе..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3>Предпочтения</h3>
+                            
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <label for="editFavoriteCuisine">
+                                        <i class="fas fa-utensils"></i> Любимая кухня
+                                    </label>
+                                    <select id="editFavoriteCuisine" name="favoriteCuisine">
+                                        <option value="">Выберите кухню</option>
+                                        <option value="Итальянская">Итальянская</option>
+                                        <option value="Французская">Французская</option>
+                                        <option value="Японская">Японская</option>
+                                        <option value="Мексиканская">Мексиканская</option>
+                                        <option value="Русская">Русская</option>
+                                        <option value="Другая">Другая</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="editSkillLevel">
+                                        <i class="fas fa-fire"></i> Уровень сложности
+                                    </label>
+                                    <select id="editSkillLevel" name="skillLevel">
+                                        <option value="Начинающий">Начинающий</option>
+                                        <option value="Средний">Средний</option>
+                                        <option value="Продвинутый">Продвинутый</option>
+                                        <option value="Шеф-повар">Шеф-повар</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <label for="editCookingTime">
+                                        <i class="fas fa-clock"></i> Время готовки
+                                    </label>
+                                    <select id="editCookingTime" name="cookingTime">
+                                        <option value="До 30 мин">До 30 минут</option>
+                                        <option value="30-60 мин">30-60 минут</option>
+                                        <option value="1-2 часа">1-2 часа</option>
+                                        <option value="Более 2 часов">Более 2 часов</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="editDietType">
+                                        <i class="fas fa-carrot"></i> Диета
+                                    </label>
+                                    <select id="editDietType" name="dietType">
+                                        <option value="Без ограничений">Без ограничений</option>
+                                        <option value="Вегетарианская">Вегетарианская</option>
+                                        <option value="Веганская">Веганская</option>
+                                        <option value="Без глютена">Без глютена</option>
+                                        <option value="Низкоуглеводная">Низкоуглеводная</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="cancel-btn" id="cancelEditBtn">
+                                <i class="fas fa-times"></i> Отмена
+                            </button>
+                            <button type="submit" class="save-btn">
+                                <i class="fas fa-save"></i> Сохранить изменения
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Модальное окно смены аватара -->
+        <div class="modal-overlay" id="avatarModal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h2><i class="fas fa-camera"></i> Смена аватара</h2>
+                    <button class="close-modal" id="closeAvatarModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <div class="avatar-options">
+                        <h3>Выберите новый аватар</h3>
+                        <div class="avatar-grid" id="avatarGrid">
+                            <!-- Аватары будут сгенерированы через JS -->
+                        </div>
+                        
+                        <div class="avatar-upload">
+                            <h3>Или загрузите свое фото</h3>
+                            <div class="upload-area" id="uploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Перетащите сюда изображение или</p>
+                                <button class="upload-btn" id="uploadBtn">Выберите файл</button>
+                                <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
+                                <p class="upload-hint">JPG, PNG или GIF, максимум 5MB</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button class="cancel-btn" id="cancelAvatarBtn">
+                            <i class="fas fa-times"></i> Отмена
+                        </button>
+                        <button class="save-btn" id="saveAvatarBtn" disabled>
+                            <i class="fas fa-save"></i> Сохранить
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Шаблон аватара -->
+    <template id="avatarTemplate">
+        <div class="avatar-option">
+            <div class="avatar-icon"></div>
+        </div>
+    </template>
+    
+    <script src="profile.js"></script>
+</body>
+</html>

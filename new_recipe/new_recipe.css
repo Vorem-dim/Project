@@ -1,0 +1,604 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #0f1721;
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(32, 148, 164, 0.05) 0%, transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(32, 148, 164, 0.05) 0%, transparent 25%);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* Карточка формы */
+.form-card {
+    background-color: #1e2a3a;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid #2d3748;
+    overflow: hidden;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header {
+    padding: 30px 40px 20px;
+    border-bottom: 1px solid #2d3748;
+    flex-shrink: 0;
+}
+
+.form-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.form-header h1 i {
+    margin-right: 15px;
+    color: #20b2aa;
+    font-size: 32px;
+}
+
+.form-header p {
+    color: #a0aec0;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    color: #20b2aa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.back-link i {
+    margin-right: 8px;
+}
+
+.back-link:hover {
+    color: #40e0d0;
+    text-decoration: underline;
+}
+
+/* Форма */
+.add-recipe-form {
+    padding: 0 40px 40px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+/* Секции формы */
+.form-section {
+    margin: 30px 0;
+    padding: 25px;
+    background-color: #2d3748;
+    border-radius: 15px;
+    border-left: 4px solid #20b2aa;
+}
+
+.form-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.form-section h2 i {
+    margin-right: 12px;
+    color: #20b2aa;
+    font-size: 22px;
+}
+
+/* Строки формы */
+.form-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.form-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Группы ввода */
+.input-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.input-group.full-width {
+    flex: 1 0 100%;
+}
+
+.input-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #e2e8f0;
+    font-size: 15px;
+}
+
+.input-group label i {
+    margin-right: 10px;
+    color: #20b2aa;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #374151;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #374151;
+    color: #e2e8f0;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: #718096;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #20b2aa;
+    box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.2);
+    background-color: #4b5563;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 60px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.input-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2320b2aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 18px;
+    padding-right: 45px;
+}
+
+/* Предпросмотр изображения */
+.image-preview {
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #1e2a3a;
+    border: 2px dashed #4b5563;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.image-preview p {
+    color: #718096;
+    font-size: 14px;
+    padding: 20px;
+}
+
+/* Чекбоксы */
+.checkbox-group {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 0;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #e2e8f0;
+}
+
+.checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-label span {
+    position: relative;
+}
+
+.checkbox-label span::before {
+    content: '';
+    position: absolute;
+    left: -35px;
+    top: 2px;
+    width: 22px;
+    height: 22px;
+    background-color: #374151;
+    border: 2px solid #4b5563;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.checkbox-label input:checked ~ span::before {
+    background-color: #20b2aa;
+    border-color: #20b2aa;
+}
+
+.checkbox-label span::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: -30px;
+    top: 3px;
+    color: white;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.checkbox-label input:checked ~ span::after {
+    opacity: 1;
+}
+
+/* Условные поля */
+.conditional-fields {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(32, 178, 170, 0.05);
+    border-radius: 10px;
+    border: 1px dashed #20b2aa;
+}
+
+.conditional-fields.active {
+    display: block;
+}
+
+/* Таблицы */
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    border: 1px solid #374151;
+}
+
+.steps-table,
+.ingredients-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #374151;
+}
+
+.steps-table th,
+.ingredients-table th {
+    background-color: #2d3748;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #4b5563;
+}
+
+.steps-table td,
+.ingredients-table td {
+    padding: 15px;
+    border-bottom: 1px solid #4b5563;
+    vertical-align: top;
+}
+
+.steps-table tbody tr:hover,
+.ingredients-table tbody tr:hover {
+    background-color: rgba(32, 178, 170, 0.05);
+}
+
+.step-number {
+    width: 60px;
+    font-weight: 600;
+    color: #20b2aa;
+    text-align: center;
+    font-size: 18px;
+}
+
+.step-description {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #4b5563;
+    border-radius: 8px;
+    background-color: #1e2a3a;
+    color: #e2e8f0;
+    font-size: 15px;
+    resize: vertical;
+    min-height: 60px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.step-description:focus {
+    outline: none;
+    border-color: #20b2aa;
+}
+
+.ingredient-name,
+.ingredient-amount,
+.ingredient-unit,
+.ingredient-image {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #4b5563;
+    border-radius: 8px;
+    background-color: #1e2a3a;
+    color: #e2e8f0;
+    font-size: 15px;
+}
+
+.ingredient-amount {
+    max-width: 120px;
+}
+
+.ingredient-unit {
+    max-width: 150px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2320b2aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+    padding-right: 35px;
+}
+
+.ingredient-image-cell {
+    min-width: 250px;
+}
+
+.ingredient-image-field {
+    display: none;
+}
+
+.ingredient-image-field.active {
+    display: block;
+}
+
+.actions-cell {
+    width: 80px;
+    text-align: center;
+}
+
+/* Кнопки действий таблиц */
+.delete-row-btn {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #fc8181;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.delete-row-btn:hover {
+    background-color: rgba(239, 68, 68, 0.2);
+    transform: scale(1.1);
+}
+
+.table-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.add-row-btn {
+    background: linear-gradient(to right, #20b2aa, #1e90ff);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.add-row-btn i {
+    margin-right: 8px;
+}
+
+.add-row-btn:hover {
+    background: linear-gradient(to right, #1e90ff, #20b2aa);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(32, 178, 170, 0.3);
+}
+
+.steps-counter,
+.ingredients-counter {
+    color: #a0aec0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Сообщения об ошибках */
+.error-message {
+    color: #fc8181;
+    font-size: 13px;
+    margin-top: 5px;
+    min-height: 18px;
+}
+
+/* Кнопка отправки формы */
+.form-actions {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #374151;
+}
+
+.submit-btn {
+    background: linear-gradient(to right, #20b2aa, #1e90ff);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    min-width: 250px;
+    justify-content: center;
+}
+
+.submit-btn i {
+    margin-right: 12px;
+    font-size: 20px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(to right, #1e90ff, #20b2aa);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(32, 178, 170, 0.4);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .form-card {
+        max-height: 95vh;
+    }
+    
+    .form-header,
+    .add-recipe-form {
+        padding: 25px 30px;
+    }
+    
+    .form-section {
+        padding: 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .input-group {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .form-header h1 {
+        font-size: 28px;
+    }
+    
+    .form-section h2 {
+        font-size: 22px;
+    }
+    
+    .steps-table th,
+    .ingredients-table th,
+    .steps-table td,
+    .ingredients-table td {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+    
+    .ingredient-image-cell {
+        min-width: 200px;
+    }
+    
+    .table-actions {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-header h1 {
+        font-size: 24px;
+    }
+    
+    .form-header h1 i {
+        font-size: 26px;
+    }
+    
+    .form-section {
+        padding: 15px;
+    }
+    
+    .submit-btn {
+        min-width: 100%;
+        padding: 16px 30px;
+    }
+    
+    .steps-table,
+    .ingredients-table {
+        display: block;
+    }
+    
+    .actions-cell {
+        width: 60px;
+    }
+}

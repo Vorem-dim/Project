@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация в приложении рецептов</title>
+    <link rel="stylesheet" href="registration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <div class="right-side">
+            <div class="register-form-container">
+                <div class="form-header">
+                    <h2>Создание аккаунта</h2>
+                    <p>Заполните форму для регистрации в кулинарном сообществе</p>
+                </div>
+                
+                <form id="registerForm" class="register-form">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="firstName">
+                                <i class="fas fa-user"></i> Имя
+                            </label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Ваше имя" required>
+                            <div class="error-message" id="firstName-error"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="lastName">
+                                <i class="fas fa-user"></i> Фамилия
+                            </label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Ваша фамилия" required>
+                            <div class="error-message" id="lastName-error"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i> Email
+                        </label>
+                        <input type="email" id="email" name="email" placeholder="ваш.email@пример.com" required>
+                        <div class="error-message" id="email-error"></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="birthDate">
+                            <i class="fas fa-birthday-cake"></i> Дата рождения
+                        </label>
+                        <input type="date" id="birthDate" name="birthDate" required>
+                        <div class="error-message" id="birthDate-error"></div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="password">
+                                <i class="fas fa-lock"></i> Пароль
+                            </label>
+                            <div class="password-wrapper">
+                                <input type="password" id="password" name="password" placeholder="Придумайте пароль" required>
+                                <button type="button" class="toggle-password" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="error-message" id="password-error"></div>
+                            <div class="password-strength">
+                                <div class="strength-bar"></div>
+                                <div class="strength-text">Надежность пароля: <span>низкая</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="confirmPassword">
+                                <i class="fas fa-lock"></i> Подтверждение
+                            </label>
+                            <div class="password-wrapper">
+                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Повторите пароль" required>
+                                <button type="button" class="toggle-password" id="toggleConfirmPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="error-message" id="confirmPassword-error"></div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="register-btn">
+                        <i class="fas fa-user-plus"></i> Зарегистрироваться
+                    </button>
+                    
+                    <div class="login-link">
+                        Уже есть аккаунт? <a href="http://localhost:4000/authentication/authentication.html">Войдите</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="registration.js"></script>
+</body>
+</html>

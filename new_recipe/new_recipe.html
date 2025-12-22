@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить новый рецепт</title>
+    <link rel="stylesheet" href="new_recipe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <div class="form-card">
+            <div class="form-header">
+                <h1><i class="fas fa-plus-circle"></i> Добавить новый рецепт</h1>
+                <p>Заполните все поля для добавления нового рецепта в коллекцию</p>
+                <a href="http://localhost:4000/index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Вернуться к рецептам
+                </a>
+            </div>
+            
+            <form id="addRecipeForm" class="add-recipe-form">
+                <div class="form-section">
+                    <h2><i class="fas fa-info-circle"></i> Основная информация</h2>
+                    
+                    <div class="form-row">
+                        <div class="input-group full-width">
+                            <label for="recipeName">
+                                <i class="fas fa-utensils"></i> Наименование рецепта
+                            </label>
+                            <input type="text" id="recipeName" name="recipeName" placeholder="Введите название рецепта" required>
+                            <div class="error-message" id="recipeName-error"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="recipeImage">
+                                <i class="fas fa-image"></i> Изображение
+                            </label>
+                            <input type="url" id="recipeImage" name="recipeImage" placeholder="https://example.com/image.jpg" required>
+                            <div class="error-message" id="recipeImage-error"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="recipeCalories">
+                                <i class="fas fa-fire"></i> Калории (на порцию)
+                            </label>
+                            <input type="number" id="recipeCalories" name="recipeCalories" placeholder="350" min="1" required>
+                            <div class="error-message" id="recipeCalories-error"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="recipeTime">
+                                <i class="fas fa-clock"></i> Время приготовления
+                            </label>
+                            <input type="text" id="recipeTime" name="recipeTime" placeholder="30 мин" required>
+                            <div class="error-message" id="recipeTime-error"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group full-width">
+                            <label for="recipeDescription">
+                                <i class="fas fa-align-left"></i> Описание рецепта
+                            </label>
+                            <textarea id="recipeDescription" name="recipeDescription" placeholder="Опишите рецепт, его особенности и историю..." rows="4" required></textarea>
+                            <div class="error-message" id="recipeDescription-error"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2><i class="fas fa-globe"></i> Кухня</h2>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="cuisineName">
+                                <i class="fas fa-flag"></i> Наименование кухни
+                            </label>
+                            <select id="cuisineName" name="cuisineName" required>
+                                <option value="">Выберите кухню</option>
+                            </select>
+                            <div class="error-message" id="cuisineName-error"></div>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <label for="newCuisine" class="checkbox-label">
+                                <input type="checkbox" id="newCuisine" name="newCuisine">
+                                <span>Новая кухня</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="conditional-fields" id="cuisineFields">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="cuisineImage">
+                                    <i class="fas fa-image"></i> Изображение кухни
+                                </label>
+                                <input type="url" id="cuisineImage" name="cuisineImage" placeholder="https://example.com/cuisine.jpg">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="cuisineDescription">
+                                    <i class="fas fa-align-left"></i> Описание кухни
+                                </label>
+                                <textarea id="cuisineDescription" name="cuisineDescription" placeholder="Опишите особенности этой кухни..." rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2><i class="fas fa-tag"></i> Категория</h2>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="categoryName">
+                                <i class="fas fa-list"></i> Наименование категории
+                            </label>
+                            <select id="categoryName" name="categoryName" required>
+                                <option value="">Выберите категорию</option>
+                            </select>
+                            <div class="error-message" id="categoryName-error"></div>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <label for="newCategory" class="checkbox-label">
+                                <input type="checkbox" id="newCategory" name="newCategory">
+                                <span>Новая категория</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="conditional-fields" id="categoryFields">
+                        <div class="form-row">
+                            <div class="input-group full-width">
+                                <label for="categoryDescription">
+                                    <i class="fas fa-align-left"></i> Описание категории
+                                </label>
+                                <textarea id="categoryDescription" name="categoryDescription" placeholder="Опишите эту категорию блюд..." rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2><i class="fas fa-list-ol"></i> Шаги приготовления</h2>
+                    
+                    <div class="table-container">
+                        <table class="steps-table" id="stepsTable">
+                            <thead>
+                                <tr>
+                                    <th>№</th>
+                                    <th>Описание шага</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="stepsTableBody">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-actions">
+                        <button type="button" class="add-row-btn" id="addStepBtn">
+                            <i class="fas fa-plus"></i> Добавить шаг
+                        </button>
+                        <div class="steps-counter" id="stepsCounter">Добавлено шагов: 0</div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2><i class="fas fa-carrot"></i> Ингредиенты</h2>
+                    
+                    <div class="table-container">
+                        <table class="ingredients-table" id="ingredientsTable">
+                            <thead>
+                                <tr>
+                                    <th>Новый</th>
+                                    <th>Наименование</th>
+                                    <th>Количество</th>
+                                    <th>Единица измерения</th>
+                                    <th>Изображение</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ingredientsTableBody">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-actions">
+                        <button type="button" class="add-row-btn" id="addIngredientBtn">
+                            <i class="fas fa-plus"></i> Добавить ингредиент
+                        </button>
+                        <div class="ingredients-counter" id="ingredientsCounter">Добавлено ингредиентов: 0</div>
+                    </div>
+                </div>
+                           
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-save"></i> Записать рецепт
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Шаблон строки для шагов приготовления -->
+    <template id="stepRowTemplate">
+        <tr class="step-row">
+            <td class="step-number">1</td>
+            <td>
+                <textarea class="step-description" placeholder="Опишите этот шаг приготовления..." rows="2" required></textarea>
+                <div class="error-message step-description-error"></div>
+            </td>
+            <td class="actions-cell">
+                <button type="button" class="delete-row-btn" title="Удалить шаг">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </template>
+    
+    <!-- Шаблон строки для ингредиентов -->
+    <template id="ingredientRowTemplate">
+        <tr class="ingredient-row">
+            <td>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="new-ingredient">
+                        <span></span>
+                    </label>
+                </div>
+            </td>
+            <td>
+                <input type="text" class="ingredient-name" required>
+                <div class="error-message ingredient-name-error"></div>
+            </td>
+            <td>
+                <input type="number" class="ingredient-amount" placeholder="200" step="0.01" min="0" required>
+                <div class="error-message ingredient-amount-error"></div>
+            </td>
+            <td>
+                <select class="ingredient-unit" required>
+                    <option value="">Выберите</option>
+                    <option value="г">г.</option>
+                    <option value="мл">мл.</option>
+                    <option value="шт">шт.</option>
+                </select>
+                <div class="error-message ingredient-unit-error"></div>
+            </td>
+            <td class="ingredient-image-cell">
+                <div class="ingredient-image-field">
+                    <input type="url" class="ingredient-image" placeholder="URL изображения">
+                </div>
+            </td>
+            <td class="actions-cell">
+                <button type="button" class="delete-row-btn" title="Удалить ингредиент">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </template>
+    
+    <script src="new_recipe.js"></script>
+</body>
+</html>

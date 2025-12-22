@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Просмотр рецепта</title>
+    <link rel="stylesheet" href="recipe_steps.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Кулинарная книга</span>
+            </div>
+            
+            <div class="recipe-header">
+                <h1 id="recipeTitle">Спагетти Карбонара</h1>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span id="recipeTime"></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-fire"></i>
+                        <span id="recipeCalories"></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-star"></i>
+                        <span id="recipeRating"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button class="back-btn" onclick="window.location.href='http:/\/localhost:4000/index.html'">
+                    <i class="fas fa-arrow-left"></i> Назад
+                </button>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="recipe-container">
+                <div class="recipe-left">
+                    <div class="recipe-image-container">
+                        <img id="recipeImage" src="" alt="">
+                    </div>
+                    
+                    <div class="recipe-description">
+                        <h2><i class="fas fa-align-left"></i> Описание</h2>
+                        <p id="recipeDescription"></p>
+                    </div>
+                    
+                    <div class="recipe-details">
+                        <div class="detail-card">
+                            <h3><i class="fas fa-globe"></i> Кухня</h3>
+                            <p id="recipeCuisine"></p>
+                        </div>
+                        <div class="detail-card">
+                            <h3><i class="fas fa-tag"></i> Категория</h3>
+                            <p id="recipeCategory"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="recipe-right">
+                    <section class="ingredients-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-carrot"></i> Ингредиенты</h2>
+                            <button class="toggle-section" id="toggleIngredients">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="ingredients-list" id="ingredientsList">
+                            
+                        </div>
+                    </section>
+                    
+                    <section class="steps-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-list-ol"></i> Шаги приготовления</h2>
+                            <button class="toggle-section" id="toggleSteps">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="steps-list" id="stepsList">
+                            
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Шаблон ингредиента -->
+    <template id="ingredientTemplate">
+        <div class="ingredient-item">
+            <div class="ingredient-image">
+                <img src="" alt="Ингредиент">
+            </div>
+            <div class="ingredient-info">
+                <h3 class="ingredient-name"></h3>
+                <div class="ingredient-amount">
+                    <span class="quantity"></span>
+                    <span class="unit"></span>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <!-- Шаблон шага приготовления -->
+    <template id="stepTemplate">
+        <div class="step-item">
+            <div class="step-number">
+                <span></span>
+            </div>
+            <div class="step-content">
+                <p class="step-description"></p>
+            </div>
+        </div>
+    </template>
+    
+    <script src="recipe_steps.js"></script>
+</body>
+</html>

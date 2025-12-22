@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Избранные рецепты - Кулинарная книга</title>
+    <link rel="stylesheet" href="favourite.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Кулинарная книга</span>
+            </div>
+            
+            <div class="header-actions">
+                <button class="back-btn" onclick="window.location.href='http:/\/localhost:4000/index.html'">
+                    <i class="fas fa-arrow-left"></i> Назад к рецептам
+                </button>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="page-header">
+                <h1><i class="fas fa-heart"></i> Избранные рецепты</h1>
+                <p>Ваша личная коллекция сохраненных рецептов. Все, что вам понравилось, собрано здесь.</p>
+            </div>
+            
+            <div class="empty-favorites" id="emptyFavorites">
+                <div class="empty-icon">
+                    <i class="far fa-heart"></i>
+                </div>
+                <h2>У вас пока нет избранных рецептов</h2>
+                <p>Добавляйте рецепты в избранное, нажимая на сердечко на карточке рецепта.</p>
+                <button class="explore-btn" onclick="window.location.href='http:/\/localhost:4000/index.html'">
+                    <i class="fas fa-compass"></i> Исследовать рецепты
+                </button>
+            </div>
+            
+            <div class="favorites-grid" id="favoritesGrid">
+                
+            </div>
+        </main>
+        
+        <div class="modal-overlay" id="recipeModal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h2 id="modalRecipeTitle">Название рецепта</h2>
+                    <button class="close-modal" id="closeModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-image">
+                        <img id="modalRecipeImage" src="" alt="Рецепт">
+                    </div>
+                    <div class="modal-info">
+                        <div class="recipe-stats">
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span id="modalRecipeTime">30 мин</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-fire"></i>
+                                <span id="modalRecipeCalories">350 ккал</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span id="modalRecipeRating">4.8</span>
+                            </div>
+                        </div>
+                        <div class="recipe-description">
+                            <h3>Описание</h3>
+                            <p id="modalRecipeDescription">Описание рецепта будет здесь...</p>
+                        </div>
+                        <div class="recipe-actions">
+                            <button class="action-btn remove-favorite" id="removeFavoriteBtn">
+                                <i class="fas fa-heart-broken"></i> Удалить из избранного
+                            </button>
+                            <button class="action-btn view-full">
+                                <i class="fas fa-external-link-alt"></i> Открыть рецепт
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <template id="favoriteCardTemplate">
+        <div class="favorite-card">
+            <div class="favorite-image">
+                <img src="" alt="Рецепт">
+                <div class="favorite-category">Категория</div>
+                <button class="favorite-remove" title="Удалить из избранного">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="favorite-content">
+                <h3 class="favorite-title">Название рецепта</h3>
+                <p class="favorite-description">Описание рецепта...</p>
+                <div class="favorite-meta">
+                    <div class="favorite-stats">
+                        <div class="favorite-stat">
+                            <i class="fas fa-clock"></i>
+                            <span>30 мин</span>
+                        </div>
+                        <div class="favorite-stat">
+                            <i class="fas fa-fire"></i>
+                            <span>350 ккал</span>
+                        </div>
+                        <div class="favorite-stat">
+                            <i class="fas fa-star"></i>
+                            <span>4.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <script src="favourite.js"></script>
+</body>
+</html>

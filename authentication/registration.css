@@ -1,0 +1,322 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #0f1721;
+    color: #e2e8f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(32, 148, 164, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(32, 148, 164, 0.1) 0%, transparent 25%);
+}
+
+.container {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+    min-height: 750px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    background-color: #1a2332;
+}
+
+/* Правая сторона */
+.right-side {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1e2a3a;
+}
+
+.register-form-container {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.form-header p {
+    color: #a0aec0;
+    font-size: 16px;
+}
+
+/* Форма */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .input-group {
+    flex: 1;
+}
+
+.input-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #e2e8f0;
+    font-size: 15px;
+}
+
+.input-group label i {
+    margin-right: 10px;
+    color: #20b2aa;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #2d3748;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #2d3748;
+    color: #e2e8f0;
+}
+
+/* Специальные стили для поля даты */
+.input-group input[type="date"] {
+    padding: 15px 20px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+/* Стилизация календаря в браузерах */
+.input-group input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #20b2aa;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    filter: invert(0.8);
+    margin-left: 5px;
+}
+
+.input-group input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    color: #e2e8f0;
+}
+
+.input-group input[type="date"]::-webkit-datetime-edit-text,
+.input-group input[type="date"]::-webkit-datetime-edit-month-field,
+.input-group input[type="date"]::-webkit-datetime-edit-day-field,
+.input-group input[type="date"]::-webkit-datetime-edit-year-field {
+    color: #e2e8f0;
+    padding: 0 2px;
+}
+
+/* Для Firefox */
+.input-group input[type="date"]::-moz-placeholder {
+    color: #718096;
+}
+
+.input-group input::placeholder {
+    color: #718096;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #20b2aa;
+    box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.2);
+    background-color: #374151;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #a0aec0;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.2s;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: #20b2aa;
+}
+
+.error-message {
+    color: #fc8181;
+    font-size: 14px;
+    margin-top: 5px;
+    min-height: 20px;
+}
+
+/* Подсказка под полем */
+.hint {
+    color: #a0aec0;
+    font-size: 13px;
+    margin-top: 8px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Индикатор сложности пароля */
+.password-strength {
+    margin-top: 10px;
+}
+
+.strength-bar {
+    height: 6px;
+    background-color: #4a5568;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.strength-bar::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background-color: #fc8181;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    border-radius: 3px;
+}
+
+.strength-text {
+    color: #a0aec0;
+    font-size: 13px;
+}
+
+.strength-text span {
+    font-weight: 600;
+}
+
+/* Кнопка регистрации */
+.register-btn {
+    background: linear-gradient(to right, #20b2aa, #1e90ff);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+
+.register-btn i {
+    margin-right: 12px;
+    font-size: 20px;
+}
+
+.register-btn:hover {
+    background: linear-gradient(to right, #1e90ff, #20b2aa);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(32, 178, 170, 0.3);
+}
+
+.register-btn:active {
+    transform: translateY(-1px);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 30px;
+    color: #a0aec0;
+    font-size: 15px;
+}
+
+.login-link a {
+    color: #20b2aa;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+    color: #40e0d0;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.register-form-container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        max-width: 700px;
+    }
+    
+    .right-side {
+        padding: 40px 30px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        border-radius: 15px;
+    }
+    
+    .right-side {
+        padding: 35px 25px;
+    }
+    
+    .form-header h2 {
+        font-size: 32px;
+    }
+    
+    .input-group input[type="date"] {
+        font-size: 15px;
+        padding: 14px 18px;
+    }
+}

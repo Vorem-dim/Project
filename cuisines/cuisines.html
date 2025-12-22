@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кухни мира - Кулинарная книга</title>
+    <link rel="stylesheet" href="cuisines.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Кулинарная книга</span>
+            </div>
+            
+            <div class="header-actions">
+                <button class="back-btn" onclick="window.location.href='http:/\/localhost:4000/index.html'">
+                    <i class="fas fa-arrow-left"></i> Назад к рецептам
+                </button>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="page-header">
+                <h1><i class="fas fa-globe"></i> Кухни мира</h1>
+                <p>Исследуйте разнообразие мировых кулинарных традиций. Нажмите на кухню, чтобы увидеть соответствующие рецепты.</p>
+            </div>
+            
+            <div class="cuisines-grid" id="cuisinesGrid">
+                
+            </div>
+        </main>
+    </div>
+    
+    <template id="cuisineCardTemplate">
+        <div class="cuisine-card">
+            <div class="cuisine-image">
+                <img src="" alt="Кухня">
+            </div>
+            <div class="cuisine-content">
+                <h3 class="cuisine-title">Название кухни</h3>
+                <p class="cuisine-description">Описание кухни...</p>
+            </div>
+        </div>
+    </template>
+    
+    <script src="cuisines.js"></script>
+</body>
+</html>

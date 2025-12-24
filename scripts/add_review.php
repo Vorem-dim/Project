@@ -14,21 +14,14 @@
 
     $reviewID = $structureStmt->fetchAll(PDO::FETCH_ASSOC)[0]['id'] + 1;
     
-    $structureQuery = "insert into reviews(id, score, comment, id_recipe) values(:id, :score, :comment, :recipeID)";
+    $structureQuery = "insert into reviews(id, score, comment, id_recipe, id_user) values(:id, :score, :comment, :recipeID, :userID)";
         
     $structureStmt = $pdo->prepare($structureQuery);
     $structureStmt->execute([
         ':id' => $reviewID,
         ':score' => $rating,
         ':comment' => $comment,
-        ':recipeID' => $recipeID
-    ]);
-
-    $structureQuery = "insert into user_reviews(id_review, id_user) values(:reviewID, :userID)";
-    
-    $structureStmt = $pdo->prepare($structureQuery);
-    $structureStmt->execute([
-        ':reviewID' => $reviewID,
+        ':recipeID' => $recipeID,
         ':userID' => $userID
     ]);
 

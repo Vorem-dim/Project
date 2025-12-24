@@ -14,12 +14,12 @@
         u.icon icon,
         0 recipes,
         count(distinct sr.id_recipe) saved,
-	    count(distinct ur.id_review) reviews
+	    count(distinct r.id) reviews
     from users u
     left join saved_recipes sr on sr.id_user = u.id 
-    left join user_reviews ur on ur.id_user = u.id
-    where id = :id
-    group by id, first_name, last_name, birthday, email, role, icon";
+    left join reviews r on r.id_user = u.id
+    where u.id = :id
+    group by u.id, first_name, last_name, birthday, email, role, icon";
         
     $structureStmt = $pdo->prepare($structureQuery);
     $structureStmt->execute([":id" => $_SESSION['user']['id']]);
